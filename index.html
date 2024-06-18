@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CNPJ</title>
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body class="bg-cyan-900 flex flex-col gap-10 items-center justify-center w-full h-screen p-2">
+
+    <div class="w-full max-w-[400px] bg-white p-5">
+        <label for="cnpj">Digite o CNPJ <span class="font-bold">(somente números)</span></label>
+        <input type="text" id="cnpj" class="border border-gray-500 outline-none p-2 w-full mt-4" required>
+
+        <button type="button" class="bg-cyan-900 mt-10 w-full p-2 text-white text-xl" onclick="buscarInfo()">Buscar</button>
+    </div>
+
+
+    <div class="bg-white p-5 hidden" id="resultado">
+        <h1 class="text-center font-medium text-2xl mb-10">Resultado da pesquisa</h1>
+
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <div class="flex items-center gap-2">
+                <p>Razão social: </p>
+                <span class="font-bold" id="razao_social"></span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <p>Nome fantasia: </p>
+                <span class="font-bold" id="nome_fantasia"></span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <p>Inscrição estadual: </p>
+                <span class="font-bold" id="ins_estadual"></span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <p>Cep: </p>
+                <span class="font-bold" id="cep"></span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <p>Rua: </p>
+                <span class="font-bold" id="rua"></span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <p>Bairro: </p>
+                <span class="font-bold" id="bairro"></span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <p>Cidade: </p>
+                <span class="font-bold" id="cidade"></span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <p>Telefone: </p>
+                <span class="font-bold" id="telefone"></span>
+            </div>
+
+            <div class="flex flex-col gap-2 md:flex-row">
+                <p>E-mail: </p>
+                <span class="font-bold overflow-hidden" id="email"></span>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="./index.js"></script>
+</body>
+</html>
