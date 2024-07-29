@@ -1,17 +1,17 @@
 const inputCnpj = document.getElementById('cnpj');
 const Loading = document.getElementById('loading');
 
-async function buscarDados() {
+async function buscarInfo() {
+  if (inputCnpj.value == "") {
+    document.getElementById('resultado').classList.add('hidden');
+    alert("Por favor, preencha o campo!");
+    return;
+  }
+
   Loading.classList.remove('hidden');
 
   try {
     const response = await fetch('https://publica.cnpj.ws/cnpj/' + inputCnpj.value);
-
-    // Verifica se a resposta foi bem-sucedida
-    if (!response.ok) {
-      alert("Ocorreu um erro, tente novamente!");
-    }
-
     const dados = await response.json();
 
     // Atualiza o DOM com os dados obtidos
@@ -30,15 +30,8 @@ async function buscarDados() {
 
   } catch {
     alert('CNPJ não encontrado, tente novamente!');
+    document.getElementById('resultado').classList.add('hidden');
   } finally {
     Loading.classList.add('hidden');
-  }
-}
-
-function buscarInfo() {
-  if (inputCnpj.value !== "") {
-    buscarDados(inputCnpj);
-  } else {
-    alert("Por favor, preencha o campo!");
   }
 }
