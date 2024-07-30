@@ -2,7 +2,9 @@ const inputCnpj = document.getElementById('cnpj');
 const Loading = document.getElementById('loading');
 
 async function buscarInfo() {
-  if (inputCnpj.value == "") {
+  const cnpjLimpo = inputCnpj.value.replace(/[.\-\/]/g, '');
+
+  if (cnpjLimpo === "") {
     document.getElementById('resultado').classList.add('hidden');
     alert("Por favor, preencha o campo!");
     return;
@@ -11,7 +13,7 @@ async function buscarInfo() {
   Loading.classList.remove('hidden');
 
   try {
-    const response = await fetch('https://publica.cnpj.ws/cnpj/' + inputCnpj.value);
+    const response = await fetch('https://publica.cnpj.ws/cnpj/' + cnpjLimpo);
     const dados = await response.json();
 
     // Atualiza o DOM com os dados obtidos
